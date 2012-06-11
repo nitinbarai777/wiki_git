@@ -15,6 +15,7 @@ end
 
 gem 'mysql2', '< 0.3'
 gem "engineyard"
+gem "engineyard-serverside"
 gem "will_paginate", "2.3.16"
 
 

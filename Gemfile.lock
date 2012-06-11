@@ -19,6 +19,7 @@ GEM
       launchy (= 2.0.5)
       net-ssh (~> 2.2.1)
       rest-client (~> 1.6.0)
+    engineyard-serverside (1.6.4)
     engineyard-serverside-adapter (1.6.4)
       escape (~> 0.0.4)
       json_pure
@@ -50,6 +51,7 @@ PLATFORMS
 
 DEPENDENCIES
   engineyard
+  engineyard-serverside
   mysql2 (< 0.3)
   rails (= 2.3.2)
   rake (= 0.8.7)
