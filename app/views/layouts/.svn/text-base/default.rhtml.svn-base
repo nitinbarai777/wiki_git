@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <title>test</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/default.css" />
+  </head>
+  <body>
+    <div id="container">
+        <div id="topnav">
+          <span style="float:left;font-size:1.8em"><b><%= link_to 'wikicloth-wiki', { :action => "show", :id => "Main_Page" }, { :style => "color:#000" }%></b></span> 
+          <%= link_to 'Recent Changes', :action => "show", :id => "Special:RecentChanges" %> -
+          <%= link_to 'Random Page', :action => "show", :id => "Special:RandomPage" %> -
+          <%= link_to 'Help', :action => "show", :id => "Help:Contents" %></span>
+          <form action="<%= url_for :action => "show", :id => "Special:Search" %>" method="get"><input name="query" type="text" /> <input type="submit" value="Search" /></form>
+        </div>
+	<div id="content">
+          <div id="pagenav">
+<% if @page.namespace.talk_ns.nil? %>
+   <% if @page.namespace.talk_for.nil? %>
+     <%= link_to @page.namespace.title, { :action => "show", :id => @page.url_slug }, { :class => "curr" } %>
+   <% else %>
+     <% mpage = Page.find_by_name(Page.url_slug_for(@page.name,@page.namespace.talk_for.name),false) %>
+     <%= link_to @page.namespace.talk_for.title, { :action => "show", :id => mpage.url_slug }, { :class => mpage.new_record? ? "new" : ""} %>
+     <%= link_to 'discussion', { :action => "show", :id => @page.url_slug }, { :class => "curr" + (@page.new_record? ? " new" : "") } %>
+     <%= link_to (@page.new_record? ? 'start' : 'edit') + ' discussion', { :action => "edit", :id => @page.url_slug }, { :class => "newsection" + (params[:action] == "edit" && params[:section] != "new" ? " curr" : "") } %>
+     <% unless @page.new_record? %>
+       <%= link_to '+', { :action => "edit", :id => @page.url_slug, :section => "new" }, { :class => (params[:action] == "edit" && params[:section] == "new" ? "curr" : "") } %>
+       <%= link_to 'history', { :action => "history", :id => @page.url_slug }, { :class => (params[:action] == "history" ? "curr" : "") } %>
+     <% end %>
+   <% end %>
+<% else %>
+   <%= link_to @page.namespace.title, { :action => "show", :id => @page.url_slug }, { :class => "curr" + (@page.new_record? ? " new" : "") } %>
+   <% dpage = Page.find_by_name(Page.url_slug_for(@page.name,@page.namespace.talk_ns.name),false) %>
+   <%= link_to 'discussion', { :action => "show", :id => dpage.url_slug }, { :class => dpage.new_record? ? "new" : "" } %>
+   <%= link_to (@page.new_record? ? 'create' : 'edit this') + ' page', { :action => "edit", :id => @page.url_slug }, { :class => "newsection" + (params[:action] == "edit" ? " curr" : "") } %>
+   <%= link_to 'history', { :action => "history", :id => @page.url_slug }, { :class => (params[:action] == "history" ? "curr" : "") } unless @page.new_record? %>
+<% end %>
+            <div style="clear:both"> </div>
+          </div>
+          <div id="pagecontent">
+            <%= yield %>
+          </div>
+        </div>
+	<div id="footer">
+          Powered By <a href="http://code.google.com/p/wikicloth/">WikiCloth</a>
+	</div>
+    </div>
+  </body>
+</html>

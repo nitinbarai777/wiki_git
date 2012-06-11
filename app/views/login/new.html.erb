@@ -1,0 +1,21 @@
+<h1>Login</h1>
+
+<% form_for(:user, :url => { :action => "create" }, :html => { :method => :post }) do |f| %>
+
+<div id="flash">
+  <% if flash[:error_login] %>
+    <h3 class="info_box"><%= flash[:error_login] %></h3>
+  <% end %>
+</div>
+
+
+
+  <%= f.label :email %>: <br />
+  <%= f.text_field :email, :size => "25" %><br />
+  <br />
+  <%= f.label :password %>: <br />
+  <%= f.password_field :password, :size => "25" %><br />
+  <br />
+
+  <%= f.submit "Login", :class => "submit-login" %>
+<% end %>

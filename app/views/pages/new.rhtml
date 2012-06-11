@@ -1,0 +1,28 @@
+<h1>New Page</h1>
+
+<% form_for(:pageNew, :url => { :action => "create" }, :html => { :method => :post }) do |f| %>
+
+<div id="flash">
+  <% if flash[:error_page] %>
+    <h3 class="info_box"><%= flash[:error_page] %></h3>
+  <% end %>
+</div>
+
+  Name: <%= f.text_field :name, :style => "width:100%;" %> <br />
+  Content: <%= f.text_area :content, :style => "width:100%;height:25em" %>
+
+  <%= f.hidden_field :namespace_id, :value => 1 %>
+  <%= f.hidden_field :changes, :value => 'page created' %>
+	
+
+  <p>
+    <input type="submit" value="Save Page" style="font-weight:bold" />
+    <input type="submit" value="Show Preview" name="preview" />
+    <%= link_to 'Cancel', :controller => "pages", :action => "index" %>
+    <%= link_to 'Editing Help', :controller => "pages", :action => "show", :id => 'Help:Cheatsheet' %> (opens in a new window)
+  </p>
+  <h4>Once you click the Save button, your changes will be immediately viewable.</h4>
+  <ul>
+    <li>Please use the <%= link_to 'sandbox', :action => "show", :id => 'Sandbox' %> for testing.</li>
+  </ul>
+<% end %>

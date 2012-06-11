@@ -1,0 +1,47 @@
+class PagesController < ApplicationController
+
+  layout "default"
+
+  include WikiCloth
+
+  caches_page :show
+
+  def index
+    redirect_to :action => "show", :id => "Main_Page"
+  end
+
+  def show
+    if params[:rev_id].blank?
+      @page = Page.find_by_name(params[:id])
+    else
+      @page = Page.find_by_name(params[:id],false)
+      @page.load_revision(params[:rev_id])
+    end
+    @wiki = WikiCloth.new({ :data => @page.content, :params => @page.params, 
+	:link_handler => WikiLinks.new("http://#{request.host_with_port}/wiki/") })
+  end
+
+  def edit
+    @page = Page.find_by_name(params[:id])
+    if @page.new_record?
+      @page.content = ""
+      @page.changes = "page created"
+    end
+  end
+
+  def history
+    @page = Page.find_by_name(params[:id])
+  end
+
+  def update
+    @page = Page.find_by_name(params[:id])
+
+    if @page.update_attributes(params[:page])
+      flash[:notice] = "Page was successfully updated."
+      redirect_to :action => "show", :id => @page.url_slug
+    else
+      render :action => "edit"
+    end
+  end
+
+end

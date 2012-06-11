@@ -1,0 +1,34 @@
+<!-- THIS TEMPLATE IS COPIED INTO Main_Page WHEN DB IS CREATED -->
+
+__NOEDITSECTION__
+
+You have successfully installed [http://code.google.com/p/wikicloth-wiki/ wikicloth-wiki].  Now that you have your wiki up and running it is time to configure a few things...
+
+== Getting Started ==
+
+'''You can ignore these steps at the moment, as they are not implemented yet'''
+
+=== Create First Account ===
+
+The first account you create is a special account.  It cannot be removed, and has full superuser privlidges.
+
+* [[Special:NewUser|Create a new account]]
+* [[Special:Groups|Manage Groups/Permissions]]
+* [[Special:ManageUsers|Manage Users]]
+
+=== Configure Your Site Settings ===
+
+After you have created your first account you will want to configure your site settings to personalise the wiki software to your needs.
+
+* [[Special:ConfigureSiteInfo|Site Information/General Settings]]
+* [[Special:Namespaces|Namespaces and Interwiki profiles]]
+* [[Special:Permissions|Default Access/Permissions]]
+
+=== Edit This Page ===
+
+When everything is configured and ready to go edit this page and you are done.
+
+== Other Information ==
+
+For a list of known bugs or to submit a bug report please view our [http://code.google.com/p/wikicloth-wiki/issues/list bug tracker].  Remember: This application is still pre-release and therefore a missing feature is not a bug.  For issues related to the WikiCloth plugin please see the [http://code.google.com/p/wikicloth/ WikiCloth project page].
+

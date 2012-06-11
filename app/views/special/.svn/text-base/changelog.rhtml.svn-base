@@ -1,0 +1,13 @@
+<h1>Recent Changes</h1>
+
+<ul>
+<% for log in @changelog %>
+  <li>
+    (<a href="">diff</a>) 
+    (<a href="<%= url_for :controller => "pages", :action => "history", :id => log.page.url_slug %>">hist</a>) 
+    <%= log.created_at %>
+    <%= link_to log.page.print_name, :controller => "pages", :action => "show", :id => log.page.url_slug %>
+    <i>(<%= log.changes %>)</i>
+  </li>
+<% end %>
+</ul>

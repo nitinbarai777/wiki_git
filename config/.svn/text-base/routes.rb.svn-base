@@ -1,0 +1,13 @@
+ActionController::Routing::Routes.draw do |map|
+
+  map.resources :namespaces
+  map.resources :revisions
+  map.resources :users
+  map.connect 'wiki/:data', :controller => "files", :action => "handle", :requirements => { :data => /File:.+/ }
+  map.connect 'wiki/:data', :controller => "special", :action => "handle", :requirements => { :data => /Special:.+/ }
+
+  map.resources :wiki, :controller => "pages", :member => { :history => :get }
+
+  map.connect '', :controller => "pages", :action => "index"
+
+end

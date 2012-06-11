@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/svn/!svn/ver/51/trunk/wikicloth
+END
+wikicloth.gemspec
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/49/trunk/wikicloth/wikicloth.gemspec
+END
+Rakefile
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/38/trunk/wikicloth/Rakefile
+END
+init.rb
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/49/trunk/wikicloth/init.rb
+END
+run_tests.rb
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/40/trunk/wikicloth/run_tests.rb
+END
+install.rb
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/18/trunk/wikicloth/install.rb
+END
+MIT-LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/18/trunk/wikicloth/MIT-LICENSE
+END
+uninstall.rb
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/38/trunk/wikicloth/uninstall.rb
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/18/trunk/wikicloth/README
+END
