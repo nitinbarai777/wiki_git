@@ -76,7 +76,7 @@ class PagesController < ApplicationController
 
 	#@revision = Revision.find(:all, :conditions => ["page_id = ?", params[:id]])
 	Revision.delete_all(:page_id => params[:id])
-    flash[:notice] = "Page was successfully deleted."
+    flash[:delete_notice] = "Page was successfully deleted."
 	redirect_to :action => "index"
   end
 
