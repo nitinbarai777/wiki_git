@@ -1,4 +1,5 @@
 Welcome to wiki
+---------------
 
 bundle install
 rake db:migrate
