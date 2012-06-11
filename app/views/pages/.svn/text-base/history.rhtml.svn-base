@@ -1,7 +1,0 @@
-<h1><%= @page.print_name %> History</h1>
-
-<ul>
-  <% for rev in @page.revisions %>
-    <li><i>(<%= link_to 'view', :action => "show", :id => @page.url_slug, :rev_id => rev.id %>)</i> <%= rev.created_at %> <i style="color:#666">(<%= rev.changes %>)</i></li>
-  <% end %>
-</ul>

@@ -1,1 +1,0 @@
-<h1>Links To <%= @page.print_name %></h1>

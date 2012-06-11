@@ -1,5 +1,0 @@
-<% @html = @wiki.to_html %>
-<h1><%= render :partial => "languages", :object => @wiki.link_handler.languages %><%= @page.print_name %></h1>
-<div class="wikipage">
-  <%= @html %>
-</div>
