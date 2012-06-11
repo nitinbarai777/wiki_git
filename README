@@ -1,1 +1,4 @@
 Welcome to wiki
+
+rake db:migrate
+rake db:seed
